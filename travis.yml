@@ -7,17 +7,17 @@ php:
   -7.1
 
   #branch yag dipawai
-  branches :
+  branches:
     only:
-      -master #QA/STRAGING
-      -develop -> Devserver
+      - master #QA/STRAGING
+      - develop -> Devserver
 
       #instal environment
-      before_initial:
-        -curl -LO https://storage.googleapis.com/kubernets-release/release/$(curl -s https://storage.googleapis.com/kubernets-release/release/stable.txt)/bin/linux/amd64/kubect1
+      before_install:
+        - curl -LO https://storage.googleapis.com/kubernets-release/release/$(curl -s https://storage.googleapis.com/kubernets-release/release/stable.txt)/bin/linux/amd64/kubect1
        
-       -chmod +x ./kubect1 #permission
-       -sudo mv ./kubect1/usr/local/bin/kubect1 #move to persisten
+       - chmod +x ./kubect1 #permission
+       - sudo mv ./kubect1/usr/local/bin/kubect1 #move to persisten
         #precompile
 
         before_script:
